@@ -1,0 +1,1401 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GovEase | Eligibility Results</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* =========================
+           PAGE BACKGROUND
+        ========================= */
+
+        body {
+            min-height: 100vh;
+            padding: 28px 18px;
+
+            font-family: "DM Sans", sans-serif;
+            color: #172033;
+
+            background:
+                radial-gradient(
+                    circle at 10% 0%,
+                    rgba(16, 185, 129, 0.10),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 90% 5%,
+                    rgba(37, 99, 235, 0.10),
+                    transparent 28%
+                ),
+                linear-gradient(
+                    135deg,
+                    #f4fbf7 0%,
+                    #f5f9ff 52%,
+                    #ffffff 100%
+                );
+
+            background-attachment: fixed;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+
+            pointer-events: none;
+
+            background-image:
+                linear-gradient(
+                    rgba(16, 185, 129, 0.025) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(37, 99, 235, 0.025) 1px,
+                    transparent 1px
+                );
+
+            background-size: 42px 42px;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+
+            width: min(1080px, 100%);
+            margin: auto;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-bottom: 22px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 23px;
+            font-weight: 700;
+
+            color: #173b62;
+        }
+
+        .logoBox {
+            width: 44px;
+            height: 44px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 14px;
+
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+
+            background: linear-gradient(
+                135deg,
+                #059669,
+                #2563eb
+            );
+
+            box-shadow:
+                0 10px 25px rgba(37, 99, 235, 0.18);
+        }
+
+        .back {
+            text-decoration: none;
+
+            padding: 10px 15px;
+
+            border-radius: 12px;
+
+            color: #344054;
+
+            background: rgba(255, 255, 255, 0.88);
+
+            border: 1px solid #e5e7eb;
+
+            font-size: 12px;
+            font-weight: 600;
+
+            transition: 0.2s;
+        }
+
+        .back:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 20px rgba(30, 41, 90, 0.08);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+
+            padding: 34px;
+
+            border-radius: 28px;
+
+            background: rgba(255, 255, 255, 0.92);
+
+            border: 1px solid #e6edf2;
+
+            box-shadow:
+                0 22px 60px rgba(30, 64, 100, 0.08);
+
+            margin-bottom: 27px;
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 190px;
+            height: 190px;
+
+            border: 1px solid rgba(16, 185, 129, 0.14);
+
+            border-radius: 50%;
+
+            right: -60px;
+            top: -70px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            padding: 7px 12px;
+
+            border-radius: 30px;
+
+            color: #047857;
+            background: #ecfdf5;
+
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: 1.2px;
+
+            margin-bottom: 13px;
+        }
+
+        .badge::before {
+            content: "";
+
+            width: 6px;
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: #10b981;
+        }
+
+        .hero h1 {
+            position: relative;
+            z-index: 2;
+
+            font-family: "Space Grotesk", sans-serif;
+
+            font-size: 34px;
+            line-height: 1.15;
+
+            letter-spacing: -1px;
+
+            margin-bottom: 9px;
+        }
+
+        .hero p {
+            position: relative;
+            z-index: 2;
+
+            color: #667085;
+
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .userInfo {
+            position: relative;
+            z-index: 2;
+
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-top: 20px;
+        }
+
+        .tag {
+            padding: 8px 12px;
+
+            border-radius: 30px;
+
+            color: #475467;
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        /* =========================
+           SUMMARY
+        ========================= */
+
+        .summary {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 14px;
+
+            margin-bottom: 25px;
+        }
+
+        .summaryCard {
+            padding: 18px;
+
+            border-radius: 18px;
+
+            background: rgba(255, 255, 255, 0.94);
+
+            border: 1px solid #e6edf2;
+
+            box-shadow:
+                0 12px 35px rgba(30, 64, 100, 0.06);
+        }
+
+        .summaryLabel {
+            color: #667085;
+
+            font-size: 10px;
+
+            margin-bottom: 7px;
+        }
+
+        .summaryNumber {
+            font-family: "Space Grotesk", sans-serif;
+
+            font-size: 27px;
+            font-weight: 700;
+        }
+
+        .summaryCard.green .summaryNumber {
+            color: #15803d;
+        }
+
+        .summaryCard.blue .summaryNumber {
+            color: #2563eb;
+        }
+
+        .summaryCard.red .summaryNumber {
+            color: #dc2626;
+        }
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        .sectionTitle {
+            font-family: "Space Grotesk", sans-serif;
+
+            font-size: 21px;
+
+            margin: 0 3px 14px;
+        }
+
+        /* =========================
+           SCHEME CARD
+        ========================= */
+
+        .card {
+            position: relative;
+            overflow: hidden;
+
+            padding: 25px;
+
+            margin-bottom: 17px;
+
+            border-radius: 23px;
+
+            background: rgba(255, 255, 255, 0.96);
+
+            border: 1px solid #e6edf2;
+
+            box-shadow:
+                0 18px 45px rgba(30, 64, 100, 0.07);
+
+            transition: 0.25s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 25px 55px rgba(30, 64, 100, 0.10);
+        }
+
+        .card::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            top: 0;
+            bottom: 0;
+
+            width: 4px;
+
+            background:
+                linear-gradient(
+                    #059669,
+                    #2563eb
+                );
+        }
+
+        .cardHeader {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: flex-start;
+
+            gap: 20px;
+
+            margin-bottom: 19px;
+        }
+
+        .schemeName {
+            font-family: "Space Grotesk", sans-serif;
+
+            font-size: 20px;
+            font-weight: 700;
+
+            margin-bottom: 5px;
+        }
+
+        .schemeType {
+            color: #98a2b3;
+
+            font-size: 11px;
+        }
+
+        /* =========================
+           STATUS
+        ========================= */
+
+        .status {
+            padding: 9px 13px;
+
+            border-radius: 12px;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            white-space: nowrap;
+        }
+
+        .status.eligible {
+            color: #15803d;
+
+            background: #ecfdf3;
+
+            border: 1px solid #bbf7d0;
+        }
+
+        .status.partial {
+            color: #b45309;
+
+            background: #fffbeb;
+
+            border: 1px solid #fde68a;
+        }
+
+        .status.not {
+            color: #dc2626;
+
+            background: #fff1f2;
+
+            border: 1px solid #fecdd3;
+        }
+
+        /* =========================
+           SCORE
+        ========================= */
+
+        .scoreArea {
+            display: flex;
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 14px;
+
+            border-radius: 16px;
+
+            background: #f8fafc;
+
+            margin-bottom: 17px;
+        }
+
+        .circle {
+            width: 66px;
+            height: 66px;
+
+            flex-shrink: 0;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(white, white) padding-box,
+                linear-gradient(
+                    135deg,
+                    #059669,
+                    #2563eb
+                ) border-box;
+
+            border: 4px solid transparent;
+
+            color: #047857;
+
+            font-family: "Space Grotesk", sans-serif;
+
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .scoreText {
+            color: #667085;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+        }
+
+        .scoreText strong {
+            display: block;
+
+            color: #344054;
+
+            font-size: 13px;
+
+            margin-bottom: 2px;
+        }
+
+        /* =========================
+           CONDITIONS
+        ========================= */
+
+        .conditions {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 9px;
+
+            margin-bottom: 17px;
+        }
+
+        .condition {
+            padding: 11px 13px;
+
+            border-radius: 11px;
+
+            font-size: 11px;
+
+            line-height: 1.45;
+        }
+
+        .condition.pass {
+            color: #166534;
+
+            background: #f0fdf4;
+
+            border: 1px solid #dcfce7;
+        }
+
+        .condition.fail {
+            color: #b91c1c;
+
+            background: #fff5f5;
+
+            border: 1px solid #ffe4e6;
+        }
+
+        /* =========================
+           REASONS
+        ========================= */
+
+        .reasons {
+            margin-bottom: 17px;
+        }
+
+        .reasonsTitle {
+            font-size: 11px;
+
+            font-weight: 700;
+
+            color: #344054;
+
+            margin-bottom: 7px;
+        }
+
+        .reason {
+            color: #667085;
+
+            font-size: 11px;
+
+            line-height: 1.5;
+
+            margin-bottom: 4px;
+        }
+
+        .description {
+            padding: 13px 14px;
+
+            margin-bottom: 17px;
+
+            border-radius: 13px;
+
+            color: #475467;
+
+            background: #f8fafc;
+
+            border: 1px solid #edf2f7;
+
+            font-size: 11px;
+
+            line-height: 1.55;
+        }
+
+        /* =========================
+           BOTTOM
+        ========================= */
+
+        .bottom {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 15px;
+        }
+
+        .official {
+            color: #98a2b3;
+
+            font-size: 10px;
+        }
+
+        .button {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 11px 17px;
+
+            border-radius: 11px;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #059669,
+                    #2563eb
+                );
+
+            text-decoration: none;
+
+            font-size: 11px;
+            font-weight: 700;
+
+            box-shadow:
+                0 8px 20px rgba(37, 99, 235, 0.18);
+
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           NOTE
+        ========================= */
+
+        .note {
+            padding: 16px 18px;
+
+            margin-top: 20px;
+
+            margin-bottom: 25px;
+
+            border-radius: 15px;
+
+            background: rgba(255, 255, 255, 0.90);
+
+            border: 1px solid #e6edf2;
+
+            color: #667085;
+
+            font-size: 10px;
+
+            line-height: 1.65;
+        }
+
+        /* =========================
+           EMPTY STATE
+        ========================= */
+
+        .empty {
+            text-align: center;
+
+            padding: 45px 20px;
+
+            background: rgba(255, 255, 255, 0.95);
+
+            border: 1px solid #e6edf2;
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 15px 40px rgba(30, 64, 100, 0.07);
+        }
+
+        .empty h2 {
+            font-family: "Space Grotesk", sans-serif;
+
+            margin-bottom: 8px;
+        }
+
+        .empty p {
+            color: #667085;
+
+            font-size: 13px;
+
+            margin-bottom: 18px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            body {
+                padding: 18px 12px;
+            }
+
+            .hero {
+                padding: 25px 20px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .summary {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .cardHeader {
+                flex-direction: column;
+            }
+
+            .status {
+                width: 100%;
+                text-align: center;
+            }
+
+            .conditions {
+                grid-template-columns: 1fr;
+            }
+
+            .bottom {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .button {
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <div class="logo">
+
+            <div class="logoBox">
+                G
+            </div>
+
+            GovEase
+
+        </div>
+
+        <a
+            href="details.html"
+            class="back"
+        >
+            ← Edit Details
+        </a>
+
+    </div>
+
+
+    <!-- HERO -->
+
+    <div class="hero">
+
+        <div class="badge">
+            ELIGIBILITY ANALYSIS
+        </div>
+
+        <h1>
+            Your Scheme Results
+        </h1>
+
+        <p>
+            We checked your profile against the
+            government schemes available in GovEase.
+        </p>
+
+        <div
+            id="userInfo"
+            class="userInfo"
+        ></div>
+
+    </div>
+
+
+    <!-- SUMMARY -->
+
+    <div
+        id="summary"
+        class="summary"
+    ></div>
+
+
+    <!-- RESULTS -->
+
+    <h2 class="sectionTitle">
+        Recommended Government Schemes
+    </h2>
+
+    <div id="results"></div>
+
+
+    <!-- NOTE -->
+
+    <div class="note">
+
+        <strong>Note:</strong>
+
+        The percentage shown is the
+        <strong>GovEase Match Score</strong>.
+
+        It is calculated from the eligibility
+        conditions configured in your scheme data.
+
+        Final eligibility should always be verified
+        through the official government portal.
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* ==========================================
+   GET SAVED DATA
+========================================== */
+
+const savedProfile =
+    localStorage.getItem("goveaseProfile");
+
+const savedResults =
+    localStorage.getItem("goveaseResults");
+
+const userInfo =
+    document.getElementById("userInfo");
+
+const resultsContainer =
+    document.getElementById("results");
+
+const summary =
+    document.getElementById("summary");
+
+
+/* ==========================================
+   PROFILE NOT FOUND
+========================================== */
+
+if (!savedProfile) {
+
+    resultsContainer.innerHTML = `
+
+        <div class="empty">
+
+            <h2>
+                Profile Not Found
+            </h2>
+
+            <p>
+                Please complete your profile first.
+            </p>
+
+            <a
+                href="details.html"
+                class="button"
+            >
+                Complete Details →
+            </a>
+
+        </div>
+    `;
+}
+
+
+/* ==========================================
+   PROFILE FOUND
+========================================== */
+
+else {
+
+    const user =
+        JSON.parse(savedProfile);
+
+
+    /* USER INFORMATION */
+
+    userInfo.innerHTML = `
+
+        <span class="tag">
+            👤 ${safe(user.gender)}
+        </span>
+
+        <span class="tag">
+            ${safe(user.age)} years
+        </span>
+
+        <span class="tag">
+            📍 ${safe(user.state)}
+        </span>
+
+        <span class="tag">
+            ${safe(user.category)}
+        </span>
+
+        <span class="tag">
+            💼 ${safe(user.occupation)}
+        </span>
+
+        ${
+            user.education
+            ?
+            `
+            <span class="tag">
+                🎓 ${safe(user.education)}
+            </span>
+            `
+            :
+            ""
+        }
+
+    `;
+
+
+    /* GET SAVED RESULTS */
+
+    let data = null;
+
+    if (savedResults) {
+
+        try {
+
+            data =
+                JSON.parse(savedResults);
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Saved results error:",
+                error
+            );
+
+        }
+    }
+
+
+    /* NO RESULTS */
+
+    if (
+        !data ||
+        !Array.isArray(data.schemes)
+    ) {
+
+        resultsContainer.innerHTML = `
+
+            <div class="empty">
+
+                <h2>
+                    No Eligibility Results
+                </h2>
+
+                <p>
+                    Please submit your profile again
+                    so GovEase can calculate your
+                    scheme matches.
+                </p>
+
+                <a
+                    href="details.html"
+                    class="button"
+                >
+                    Check Again →
+                </a>
+
+            </div>
+
+        `;
+    }
+
+
+    /* DISPLAY RESULTS */
+
+    else {
+
+        const schemes =
+            data.schemes;
+
+
+        /* SUMMARY */
+
+        let eligibleCount = 0;
+        let partialCount = 0;
+        let notEligibleCount = 0;
+
+
+        schemes.forEach(function (scheme) {
+
+            const score =
+                Number(
+                    scheme.eligibility_percentage || 0
+                );
+
+
+            if (score >= 80) {
+
+                eligibleCount++;
+
+            }
+
+            else if (score >= 50) {
+
+                partialCount++;
+
+            }
+
+            else {
+
+                notEligibleCount++;
+
+            }
+
+        });
+
+
+        summary.innerHTML = `
+
+            <div class="summaryCard blue">
+
+                <div class="summaryLabel">
+                    Schemes Checked
+                </div>
+
+                <div class="summaryNumber">
+                    ${schemes.length}
+                </div>
+
+            </div>
+
+
+            <div class="summaryCard green">
+
+                <div class="summaryLabel">
+                    Strong Matches
+                </div>
+
+                <div class="summaryNumber">
+                    ${eligibleCount}
+                </div>
+
+            </div>
+
+
+            <div class="summaryCard red">
+
+                <div class="summaryLabel">
+                    Need Review
+                </div>
+
+                <div class="summaryNumber">
+                    ${partialCount + notEligibleCount}
+                </div>
+
+            </div>
+
+        `;
+
+
+        /* SORT */
+
+        schemes.sort(function (a, b) {
+
+            return Number(
+                b.eligibility_percentage || 0
+            )
+            -
+            Number(
+                a.eligibility_percentage || 0
+            );
+
+        });
+
+
+        /* CREATE CARDS */
+
+        schemes.forEach(function (scheme) {
+
+            const score =
+                Math.max(
+                    0,
+                    Math.min(
+                        100,
+                        Number(
+                            scheme.eligibility_percentage || 0
+                        )
+                    )
+                );
+
+
+            let statusClass = "not";
+            let statusText = "✕ NOT ELIGIBLE";
+
+
+            if (score >= 80) {
+
+                statusClass = "eligible";
+                statusText = "✓ ELIGIBLE";
+
+            }
+
+            else if (score >= 50) {
+
+                statusClass = "partial";
+                statusText = "◐ PARTIALLY ELIGIBLE";
+
+            }
+
+
+            const matched =
+                Array.isArray(scheme.matched)
+                ? scheme.matched
+                : [];
+
+
+            const reasons =
+                Array.isArray(scheme.reasons)
+                ? scheme.reasons
+                : [];
+
+
+            const missing =
+                Array.isArray(scheme.missing_documents)
+                ? scheme.missing_documents
+                : [];
+
+
+            let conditionsHTML = "";
+
+
+            matched.forEach(function (item) {
+
+                conditionsHTML += `
+
+                    <div class="condition pass">
+                        ✓ ${safe(item)}
+                    </div>
+
+                `;
+
+            });
+
+
+            reasons.forEach(function (item) {
+
+                conditionsHTML += `
+
+                    <div class="condition fail">
+                        ✕ ${safe(item)}
+                    </div>
+
+                `;
+
+            });
+
+
+            missing.forEach(function (item) {
+
+                conditionsHTML += `
+
+                    <div class="condition fail">
+                        ✕ Missing document:
+                        ${safe(item)}
+                    </div>
+
+                `;
+
+            });
+
+
+            if (conditionsHTML === "") {
+
+                conditionsHTML = `
+
+                    <div class="condition pass">
+                        ✓ No additional issues reported
+                    </div>
+
+                `;
+
+            }
+
+
+            let reasonsHTML = "";
+
+
+            reasons.forEach(function (item) {
+
+                reasonsHTML += `
+
+                    <div class="reason">
+                        • ${safe(item)}
+                    </div>
+
+                `;
+
+            });
+
+
+            const card =
+                document.createElement("div");
+
+
+            card.className = "card";
+
+
+            card.innerHTML = `
+
+                <div class="cardHeader">
+
+                    <div>
+
+                        <div class="schemeName">
+                            ${safe(
+                                scheme.scheme_name ||
+                                scheme.name ||
+                                "Government Scheme"
+                            )}
+                        </div>
+
+                        <div class="schemeType">
+                            ${safe(
+                                scheme.category ||
+                                "Government Benefit"
+                            )}
+                        </div>
+
+                    </div>
+
+                    <div class="status ${statusClass}">
+                        ${statusText}
+                    </div>
+
+                </div>
+
+
+                <div class="scoreArea">
+
+                    <div class="circle">
+                        ${score}%
+                    </div>
+
+                    <div class="scoreText">
+
+                        <strong>
+                            GovEase Match Score
+                        </strong>
+
+                        ${score}% eligibility
+                        match based on the
+                        configured conditions.
+
+                    </div>
+
+                </div>
+
+
+                <div class="conditions">
+                    ${conditionsHTML}
+                </div>
+
+
+                ${
+                    reasonsHTML
+                    ?
+                    `
+                    <div class="reasons">
+
+                        <div class="reasonsTitle">
+                            Why this score?
+                        </div>
+
+                        ${reasonsHTML}
+
+                    </div>
+                    `
+                    :
+                    ""
+                }
+
+
+                ${
+                    scheme.benefit
+                    ?
+                    `
+                    <div class="description">
+
+                        <strong>
+                            Benefit:
+                        </strong>
+
+                        ${safe(scheme.benefit)}
+
+                    </div>
+                    `
+                    :
+                    ""
+                }
+
+
+                <div class="bottom">
+
+                    <span class="official">
+                        GovEase preliminary
+                        eligibility result
+                    </span>
+
+                    <a
+                        class="button"
+                        href="https://www.myscheme.gov.in/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Verify Officially →
+                    </a>
+
+                </div>
+
+            `;
+
+
+            resultsContainer.appendChild(card);
+
+        });
+
+    }
+
+}
+
+
+/* ==========================================
+   SAFE HTML
+========================================== */
+
+function safe(value) {
+
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+</script>
+
+</body>
+
+</html>
+```
