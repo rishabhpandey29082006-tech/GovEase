@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GovEase | Profile Details</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    font-family:"DM Sans",sans-serif;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(255,255,255,.9), transparent 30%),
+        linear-gradient(135deg,#eef8f3,#f7f4ea,#eef5fb);
+    color:#173b62;
+}
+
+.page{
+    min-height:100vh;
+    padding:35px 20px;
+}
+
+.container{
+    width:min(900px,100%);
+    margin:auto;
+}
+
+/* HEADER */
+
+.header{
+    text-align:center;
+    margin-bottom:28px;
+}
+
+.logo{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:10px;
+}
+
+.logoIcon{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    border:4px solid #138a4b;
+    display:grid;
+    place-items:center;
+    color:#175091;
+    font-size:25px;
+    background:white;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.logoText{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:30px;
+    font-weight:700;
+}
+
+.logoText span{
+    color:#138a4b;
+}
+
+.header h1{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:32px;
+}
+
+.header p{
+    margin-top:7px;
+    color:#667085;
+    font-size:12px;
+}
+
+/* CARD */
+
+.card{
+    background:rgba(255,255,255,.94);
+    border:1px solid rgba(255,255,255,.8);
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 15px 45px rgba(30,60,90,.10);
+}
+
+.section{
+    margin-bottom:28px;
+}
+
+.sectionTitle{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding-bottom:10px;
+    margin-bottom:16px;
+    border-bottom:1px solid #e8edf2;
+}
+
+.sectionNumber{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    color:white;
+    background:#138a4b;
+    font-size:12px;
+    font-weight:700;
+}
+
+.sectionTitle h2{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:18px;
+}
+
+/* GRID */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.field label{
+    display:block;
+    margin-bottom:6px;
+    font-size:10px;
+    font-weight:700;
+    color:#344054;
+}
+
+.field input,
+.field select{
+    width:100%;
+    height:45px;
+    padding:0 12px;
+    border:1px solid #d6dde6;
+    border-radius:10px;
+    outline:none;
+    background:white;
+    color:#344054;
+    font-family:"DM Sans",sans-serif;
+    font-size:11px;
+}
+
+.field input:focus,
+.field select:focus{
+    border-color:#138a4b;
+    box-shadow:0 0 0 3px rgba(19,138,75,.08);
+}
+
+/* DOCUMENTS */
+
+.documents{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.uploadBox{
+    border:1.5px dashed #b9c7d5;
+    border-radius:14px;
+    padding:20px 12px;
+    text-align:center;
+    background:#f9fbfc;
+    transition:.2s;
+}
+
+.uploadBox:hover{
+    border-color:#138a4b;
+    background:#f1faf5;
+}
+
+.uploadIcon{
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.uploadBox h3{
+    font-size:11px;
+    margin-bottom:4px;
+}
+
+.uploadBox p{
+    color:#98a2b3;
+    font-size:8px;
+    margin-bottom:10px;
+}
+
+.uploadBox input{
+    width:100%;
+    font-size:9px;
+}
+
+.preview{
+    display:none;
+    width:100%;
+    max-height:100px;
+    object-fit:contain;
+    margin-top:10px;
+    border-radius:8px;
+}
+
+/* NOTE */
+
+.note{
+    padding:12px;
+    border-radius:10px;
+    background:#fff8e8;
+    color:#8a5a00;
+    font-size:9px;
+    line-height:1.6;
+}
+
+/* ERROR */
+
+#error{
+    display:none;
+    margin:15px 0;
+    padding:11px;
+    border-radius:9px;
+    background:#fff1f2;
+    border:1px solid #fecdd3;
+    color:#b42318;
+    font-size:10px;
+}
+
+/* SUCCESS */
+
+#success{
+    display:none;
+    margin:15px 0;
+    padding:11px;
+    border-radius:9px;
+    background:#ecfdf3;
+    border:1px solid #abefc6;
+    color:#067647;
+    font-size:10px;
+}
+
+/* BUTTON */
+
+button{
+    width:100%;
+    height:50px;
+    border:0;
+    border-radius:11px;
+    background:linear-gradient(135deg,#138a4b,#087a3d);
+    color:white;
+    font-family:"DM Sans",sans-serif;
+    font-size:12px;
+    font-weight:800;
+    cursor:pointer;
+    transition:.2s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(19,138,75,.20);
+}
+
+button:disabled{
+    opacity:.65;
+    cursor:not-allowed;
+    transform:none;
+}
+
+.loading{
+    display:none;
+    margin-top:10px;
+    text-align:center;
+    color:#667085;
+    font-size:9px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:700px){
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .documents{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+    .header h1{
+        font-size:26px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+
+<div class="container">
+
+<!-- HEADER -->
+
+<div class="header">
+
+    <div class="logo">
+
+        <div class="logoIcon">✺</div>
+
+        <div class="logoText">
+            Gov<span>Ease</span>
+        </div>
+
+    </div>
+
+    <h1>Complete Your Profile</h1>
+
+    <p>
+        Enter your details so GovEase can find government schemes matching your profile.
+    </p>
+
+</div>
+
+
+<!-- CARD -->
+
+<div class="card">
+
+<form id="detailsForm">
+
+
+<!-- PERSONAL DETAILS -->
+
+<div class="section">
+
+    <div class="sectionTitle">
+
+        <div class="sectionNumber">1</div>
+
+        <h2>Personal Details</h2>
+
+    </div>
+
+
+    <div class="grid">
+
+        <div class="field">
+
+            <label>Age</label>
+
+            <input
+                id="age"
+                type="number"
+                min="1"
+                max="120"
+                placeholder="Enter your age"
+                required
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label>Gender</label>
+
+            <select id="gender" required>
+
+                <option value="">
+                    Select gender
+                </option>
+
+                <option value="Male">
+                    Male
+                </option>
+
+                <option value="Female">
+                    Female
+                </option>
+
+                <option value="Other">
+                    Other
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="field">
+
+            <label>Occupation</label>
+
+            <select id="occupation" required>
+
+                <option value="">
+                    Select occupation
+                </option>
+
+                <option value="student">
+                    Student
+                </option>
+
+                <option value="farmer">
+                    Farmer
+                </option>
+
+                <option value="worker">
+                    Worker
+                </option>
+
+                <option value="business">
+                    Business
+                </option>
+
+                <option value="unemployed">
+                    Unemployed
+                </option>
+
+                <option value="artisan">
+                    Artisan
+                </option>
+
+                <option value="street_vendor">
+                    Street Vendor
+                </option>
+
+                <option value="craftsperson">
+                    Craftsperson
+                </option>
+
+                <option value="fisher">
+                    Fisher
+                </option>
+
+                <option value="weaver">
+                    Weaver
+                </option>
+
+                <option value="entrepreneur">
+                    Entrepreneur
+                </option>
+
+                <option value="other">
+                    Other
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="field">
+
+            <label>Social Category</label>
+
+            <select id="category" required>
+
+                <option value="">
+                    Select category
+                </option>
+
+                <option value="General">
+                    General
+                </option>
+
+                <option value="OBC">
+                    OBC
+                </option>
+
+                <option value="SC">
+                    SC
+                </option>
+
+                <option value="ST">
+                    ST
+                </option>
+
+                <option value="Other">
+                    Other
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- LOCATION & FINANCIAL -->
+
+<div class="section">
+
+    <div class="sectionTitle">
+
+        <div class="sectionNumber">2</div>
+
+        <h2>Location & Financial Details</h2>
+
+    </div>
+
+
+    <div class="grid">
+
+        <div class="field">
+
+            <label>State / UT</label>
+
+            <select id="state" required>
+
+                <option value="">
+                    Select State / UT
+                </option>
+
+                <option>Andhra Pradesh</option>
+                <option>Arunachal Pradesh</option>
+                <option>Assam</option>
+                <option>Bihar</option>
+                <option>Chhattisgarh</option>
+                <option>Goa</option>
+                <option>Gujarat</option>
+                <option>Haryana</option>
+                <option>Himachal Pradesh</option>
+                <option>Jharkhand</option>
+                <option>Karnataka</option>
+                <option>Kerala</option>
+                <option>Madhya Pradesh</option>
+                <option>Maharashtra</option>
+                <option>Manipur</option>
+                <option>Meghalaya</option>
+                <option>Mizoram</option>
+                <option>Nagaland</option>
+                <option>Odisha</option>
+                <option>Punjab</option>
+                <option>Rajasthan</option>
+                <option>Sikkim</option>
+                <option>Tamil Nadu</option>
+                <option>Telangana</option>
+                <option>Tripura</option>
+                <option>Uttar Pradesh</option>
+                <option>Uttarakhand</option>
+                <option>West Bengal</option>
+                <option>Andaman and Nicobar Islands</option>
+                <option>Chandigarh</option>
+                <option>Dadra and Nagar Haveli and Daman and Diu</option>
+                <option>Delhi</option>
+                <option>Jammu and Kashmir</option>
+                <option>Ladakh</option>
+                <option>Lakshadweep</option>
+                <option>Puducherry</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="field">
+
+            <label>Annual Family Income</label>
+
+            <select id="income" required>
+
+                <option value="">
+                    Select income range
+                </option>
+
+                <option value="below_1_lakh">
+                    Below ₹1 Lakh
+                </option>
+
+                <option value="1_2_lakh">
+                    ₹1–2 Lakh
+                </option>
+
+                <option value="2_5_lakh">
+                    ₹2–5 Lakh
+                </option>
+
+                <option value="5_8_lakh">
+                    ₹5–8 Lakh
+                </option>
+
+                <option value="above_8_lakh">
+                    Above ₹8 Lakh
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- EDUCATION -->
+
+<div class="section">
+
+    <div class="sectionTitle">
+
+        <div class="sectionNumber">3</div>
+
+        <h2>Education Details</h2>
+
+    </div>
+
+
+    <div class="grid">
+
+        <div class="field">
+
+            <label>Highest Education</label>
+
+            <select id="education">
+
+                <option value="">
+                    Select education
+                </option>
+
+                <option value="10th">
+                    10th
+                </option>
+
+                <option value="12th">
+                    12th
+                </option>
+
+                <option value="diploma">
+                    Diploma
+                </option>
+
+                <option value="graduate">
+                    Graduate
+                </option>
+
+                <option value="postgraduate">
+                    Postgraduate
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="field">
+
+            <label>Percentage / Marks</label>
+
+            <input
+                id="percentage"
+                type="number"
+                min="0"
+                max="100"
+                step="0.01"
+                placeholder="Example: 75"
+            >
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- DOCUMENTS -->
+
+<div class="section">
+
+    <div class="sectionTitle">
+
+        <div class="sectionNumber">4</div>
+
+        <h2>Document Verification</h2>
+
+    </div>
+
+
+    <div class="documents">
+
+
+        <div class="uploadBox">
+
+            <div class="uploadIcon">🪪</div>
+
+            <h3>Aadhaar Card</h3>
+
+            <p>Upload if available</p>
+
+            <input
+                id="aadhaar"
+                type="file"
+                accept="image/*"
+            >
+
+            <img
+                id="aadhaarPreview"
+                class="preview"
+                alt="Aadhaar preview"
+            >
+
+        </div>
+
+
+        <div class="uploadBox">
+
+            <div class="uploadIcon">📄</div>
+
+            <h3>Marksheet</h3>
+
+            <p>Upload if available</p>
+
+            <input
+                id="marksheet"
+                type="file"
+                accept="image/*"
+            >
+
+            <img
+                id="marksheetPreview"
+                class="preview"
+                alt="Marksheet preview"
+            >
+
+        </div>
+
+
+        <div class="uploadBox">
+
+            <div class="uploadIcon">🎓</div>
+
+            <h3>Student ID Card</h3>
+
+            <p>Upload if available</p>
+
+            <input
+                id="studentId"
+                type="file"
+                accept="image/*"
+            >
+
+            <img
+                id="studentIdPreview"
+                class="preview"
+                alt="Student ID preview"
+            >
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="note">
+
+    🔒 Your uploaded documents are used for this hackathon demo.
+    GovEase will use the information you provide to perform preliminary
+    scheme matching.
+
+</div>
+
+
+<div id="error"></div>
+
+<div id="success"></div>
+
+
+<button id="submitButton" type="submit">
+    Find My Government Benefits →
+</button>
+
+
+<div id="loading">
+    🔎 Checking available government schemes...
+</div>
+
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* IMAGE PREVIEW */
+
+function setupPreview(inputId, previewId){
+
+    const input =
+        document.getElementById(inputId);
+
+    const preview =
+        document.getElementById(previewId);
+
+    input.addEventListener("change", function(){
+
+        const file = this.files[0];
+
+        if(!file){
+
+            preview.style.display = "none";
+
+            return;
+        }
+
+        if(!file.type.startsWith("image/")){
+
+            this.value = "";
+
+            showError(
+                "Please upload an image file."
+            );
+
+            return;
+        }
+
+        const reader =
+            new FileReader();
+
+        reader.onload = function(event){
+
+            preview.src =
+                event.target.result;
+
+            preview.style.display =
+                "block";
+
+        };
+
+        reader.readAsDataURL(file);
+
+    });
+
+}
+
+
+setupPreview(
+    "aadhaar",
+    "aadhaarPreview"
+);
+
+setupPreview(
+    "marksheet",
+    "marksheetPreview"
+);
+
+setupPreview(
+    "studentId",
+    "studentIdPreview"
+);
+
+
+/* FORM SUBMIT */
+
+document
+.getElementById("detailsForm")
+.addEventListener(
+    "submit",
+    async function(event){
+
+        event.preventDefault();
+
+        const error =
+            document.getElementById("error");
+
+        const success =
+            document.getElementById("success");
+
+        const button =
+            document.getElementById("submitButton");
+
+        const loading =
+            document.getElementById("loading");
+
+
+        error.style.display = "none";
+
+        success.style.display = "none";
+
+
+        /* GET FORM DATA */
+
+        const age =
+            Number(
+                document.getElementById("age").value
+            );
+
+        const gender =
+            document.getElementById("gender").value;
+
+        const occupation =
+            document.getElementById("occupation").value;
+
+        const category =
+            document.getElementById("category").value;
+
+        const state =
+            document.getElementById("state").value;
+
+        const income =
+            document.getElementById("income").value;
+
+        const education =
+            document.getElementById("education").value;
+
+        const percentageValue =
+            document.getElementById("percentage").value;
+
+
+        /* VALIDATION */
+
+        if(!age || age < 1 || age > 120){
+
+            showError(
+                "Please enter a valid age."
+            );
+
+            return;
+        }
+
+
+        if(
+            !gender ||
+            !occupation ||
+            !category ||
+            !state ||
+            !income
+        ){
+
+            showError(
+                "Please complete all required profile details."
+            );
+
+            return;
+        }
+
+
+        /* DOCUMENTS */
+
+        const aadhaar =
+            document.getElementById("aadhaar")
+            .files[0];
+
+        const marksheet =
+            document.getElementById("marksheet")
+            .files[0];
+
+        const studentId =
+            document.getElementById("studentId")
+            .files[0];
+
+
+        /* PROFILE */
+
+        const profile = {
+
+            age: age,
+
+            gender: gender,
+
+            occupation: occupation,
+
+            category: category,
+
+            state: state,
+
+            income: income,
+
+            education:
+                education === ""
+                ? null
+                : education,
+
+            percentage:
+                percentageValue === ""
+                ? null
+                : Number(percentageValue),
+
+            documents: {
+
+                aadhaar:
+                    !!aadhaar,
+
+                marksheet:
+                    !!marksheet,
+
+                studentId:
+                    !!studentId
+
+            }
+
+        };
+
+
+        /* START LOADING */
+
+        button.disabled = true;
+
+        loading.style.display = "block";
+
+
+        try{
+
+            /* CALL FLASK BACKEND */
+
+            const response =
+                await fetch(
+                    "http://127.0.0.1:5000/api/check-eligibility",
+                    {
+                        method:"POST",
+
+                        headers:{
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body:
+                            JSON.stringify(profile)
+                    }
+                );
+
+
+            if(!response.ok){
+
+                const errorData =
+                    await response.json()
+                    .catch(() => null);
+
+                throw new Error(
+                    errorData?.message ||
+                    "Backend request failed."
+                );
+
+            }
+
+
+            const result =
+                await response.json();
+
+
+            if(result.status !== "success"){
+
+                throw new Error(
+                    result.message ||
+                    "Eligibility check failed."
+                );
+
+            }
+
+
+            /* SAVE DATA */
+
+            localStorage.setItem(
+                "goveaseProfile",
+                JSON.stringify(profile)
+            );
+
+
+            localStorage.setItem(
+                "goveaseResults",
+                JSON.stringify(result)
+            );
+
+
+            /* SUCCESS */
+
+            success.textContent =
+                "Eligibility checked successfully. Opening results...";
+
+            success.style.display =
+                "block";
+
+
+            /* IMPORTANT:
+               eligibility.html is inside js folder
+            */
+
+            setTimeout(function(){
+
+                window.location.href =
+                    "eligibility.html";
+
+            }, 700);
+
+
+        }
+        catch(error){
+
+            console.error(
+                "GovEase Error:",
+                error
+            );
+
+
+            showError(
+                error.message ||
+                "Backend connection failed. Please make sure Flask is running on port 5000."
+            );
+
+
+            button.disabled = false;
+
+            loading.style.display = "none";
+
+        }
+
+    }
+);
+
+
+/* ERROR */
+
+function showError(message){
+
+    const error =
+        document.getElementById("error");
+
+    error.textContent =
+        message;
+
+    error.style.display =
+        "block";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+</script>
+
+</body>
+</html>

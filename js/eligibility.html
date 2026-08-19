@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GovEase | Eligibility Results</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            padding: 25px 15px;
+            font-family: "DM Sans", sans-serif;
+            color: #172033;
+
+            background:
+                radial-gradient(circle at 5% 10%,
+                    rgba(16, 185, 129, .14),
+                    transparent 28%),
+                radial-gradient(circle at 95% 10%,
+                    rgba(59, 130, 246, .14),
+                    transparent 28%),
+                linear-gradient(135deg,
+                    #f0fdf4,
+                    #eff6ff 50%,
+                    #f5f3ff);
+        }
+
+        .container {
+            width: min(1100px, 100%);
+            margin: auto;
+        }
+
+        /* HEADER */
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 14px 18px;
+            margin-bottom: 22px;
+
+            background: rgba(255,255,255,.92);
+            border-radius: 18px;
+
+            box-shadow: 0 12px 35px rgba(15,23,42,.08);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-family: "Space Grotesk";
+            font-size: 23px;
+            font-weight: 700;
+            color: #172554;
+        }
+
+        .logoIcon {
+            width: 43px;
+            height: 43px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 13px;
+
+            color: white;
+            font-weight: 700;
+
+            background: linear-gradient(135deg,#10b981,#2563eb);
+        }
+
+        .backBtn {
+            border: none;
+            padding: 10px 15px;
+            border-radius: 10px;
+
+            background: #ecfdf5;
+            color: #047857;
+
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* TITLE */
+
+        .title {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .title h1 {
+            font-family: "Space Grotesk";
+            font-size: 34px;
+            color: #172554;
+            margin-bottom: 8px;
+        }
+
+        .title p {
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        /* PROFILE */
+
+        .profile {
+            background: white;
+            border-radius: 22px;
+            padding: 22px;
+            margin-bottom: 22px;
+
+            box-shadow: 0 15px 45px rgba(15,23,42,.08);
+        }
+
+        .profile h2 {
+            font-family: "Space Grotesk";
+            color: #173b63;
+            margin-bottom: 17px;
+        }
+
+        .profileGrid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 12px;
+        }
+
+        .profileItem {
+            background: #f8fafc;
+            padding: 14px;
+            border-radius: 12px;
+        }
+
+        .profileItem span {
+            display: block;
+            font-size: 10px;
+            color: #64748b;
+            margin-bottom: 5px;
+        }
+
+        .profileItem strong {
+            font-size: 13px;
+            color: #172033;
+        }
+
+        /* SUMMARY */
+
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .summaryCard {
+            padding: 20px;
+            border-radius: 18px;
+            background: white;
+            box-shadow: 0 12px 30px rgba(15,23,42,.07);
+        }
+
+        .summaryCard span {
+            font-size: 11px;
+            color: #64748b;
+        }
+
+        .summaryCard strong {
+            display: block;
+            font-size: 30px;
+            margin-top: 5px;
+            font-family: "Space Grotesk";
+        }
+
+        .eligible strong {
+            color: #059669;
+        }
+
+        .possible strong {
+            color: #d97706;
+        }
+
+        .notEligible strong {
+            color: #dc2626;
+        }
+
+        /* SCHEMES */
+
+        .sectionTitle {
+            font-family: "Space Grotesk";
+            color: #173b63;
+            margin-bottom: 15px;
+        }
+
+        .schemes {
+            display: grid;
+            gap: 15px;
+        }
+
+        .scheme {
+            background: white;
+            border-radius: 20px;
+            padding: 22px;
+
+            box-shadow: 0 12px 35px rgba(15,23,42,.08);
+        }
+
+        .schemeTop {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .scheme h3 {
+            font-family: "Space Grotesk";
+            color: #172554;
+            margin-bottom: 6px;
+        }
+
+        .category {
+            font-size: 11px;
+            color: #64748b;
+        }
+
+        .percentage {
+            min-width: 90px;
+            height: 40px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 12px;
+
+            background: #ecfdf5;
+            color: #047857;
+
+            font-weight: 700;
+        }
+
+        .benefit {
+            margin: 14px 0;
+            color: #475569;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 7px 12px;
+            border-radius: 20px;
+
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .status.Eligible {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .status.Partially {
+            background: #fef3c7;
+            color: #b45309;
+        }
+
+        .status.Not {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+
+        .details {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .details strong {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 11px;
+            color: #334155;
+        }
+
+        .details ul {
+            padding-left: 18px;
+        }
+
+        .details li {
+            font-size: 11px;
+            color: #64748b;
+            margin-bottom: 4px;
+        }
+
+        .missing {
+            color: #dc2626 !important;
+        }
+
+        .noResults {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            text-align: center;
+            color: #64748b;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:700px) {
+
+            .profileGrid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .summary {
+                grid-template-columns: 1fr;
+            }
+
+            .title h1 {
+                font-size: 28px;
+            }
+        }
+
+        @media(max-width:450px) {
+
+            .profileGrid {
+                grid-template-columns: 1fr;
+            }
+
+            .schemeTop {
+                flex-direction: column;
+            }
+
+            .percentage {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <div class="logo">
+
+            <div class="logoIcon">
+                G
+            </div>
+
+            GovEase
+
+        </div>
+
+        <button
+            class="backBtn"
+            onclick="goBack()">
+            ← Edit Profile
+        </button>
+
+    </div>
+
+
+    <!-- TITLE -->
+
+    <div class="title">
+
+        <h1>
+            Your Government Benefits
+        </h1>
+
+        <p>
+            GovEase analysed your profile and found
+            schemes matching your details.
+        </p>
+
+    </div>
+
+
+    <!-- PROFILE -->
+
+    <div class="profile">
+
+        <h2>
+            👤 Profile Analysis
+        </h2>
+
+        <div
+            class="profileGrid"
+            id="profileGrid">
+        </div>
+
+    </div>
+
+
+    <!-- SUMMARY -->
+
+    <div class="summary">
+
+        <div class="summaryCard eligible">
+
+            <span>
+                Highly Eligible
+            </span>
+
+            <strong id="eligibleCount">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="summaryCard possible">
+
+            <span>
+                Partially Eligible
+            </span>
+
+            <strong id="possibleCount">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="summaryCard notEligible">
+
+            <span>
+                Not Eligible
+            </span>
+
+            <strong id="notEligibleCount">
+                0
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- SCHEMES -->
+
+    <h2 class="sectionTitle">
+        🎯 Recommended Government Schemes
+    </h2>
+
+    <div
+        class="schemes"
+        id="schemes">
+    </div>
+
+</div>
+
+
+<script>
+
+    /* =========================
+       LOAD DATA
+    ========================= */
+
+    const profile =
+        JSON.parse(
+            localStorage.getItem("goveaseProfile") || "null"
+        );
+
+    const result =
+        JSON.parse(
+            localStorage.getItem("goveaseResults") || "null"
+        );
+
+
+    /* =========================
+       PROFILE
+    ========================= */
+
+    function showProfile() {
+
+        const box =
+            document.getElementById("profileGrid");
+
+        if (!profile) {
+
+            box.innerHTML = `
+                <div class="noResults">
+                    Profile data not found.
+                    Please go back and enter your details.
+                </div>
+            `;
+
+            return;
+        }
+
+        box.innerHTML = `
+
+            <div class="profileItem">
+                <span>Age</span>
+                <strong>${profile.age}</strong>
+            </div>
+
+            <div class="profileItem">
+                <span>Gender</span>
+                <strong>${profile.gender}</strong>
+            </div>
+
+            <div class="profileItem">
+                <span>Occupation</span>
+                <strong>${formatText(profile.occupation)}</strong>
+            </div>
+
+            <div class="profileItem">
+                <span>Category</span>
+                <strong>${profile.category}</strong>
+            </div>
+
+            <div class="profileItem">
+                <span>State</span>
+                <strong>${profile.state}</strong>
+            </div>
+
+            <div class="profileItem">
+                <span>Income</span>
+                <strong>${formatIncome(profile.income)}</strong>
+            </div>
+
+            <div class="profileItem">
+                <span>Education</span>
+                <strong>${profile.education}</strong>
+            </div>
+
+            <div class="profileItem">
+                <span>Percentage</span>
+                <strong>${profile.percentage}%</strong>
+            </div>
+
+        `;
+    }
+
+
+    /* =========================
+       SUMMARY
+    ========================= */
+
+    function showSummary() {
+
+        if (!result) return;
+
+        const summary =
+            result.summary || {};
+
+        document.getElementById(
+            "eligibleCount"
+        ).textContent =
+            summary.eligible || 0;
+
+        document.getElementById(
+            "possibleCount"
+        ).textContent =
+            summary.possible || 0;
+
+        document.getElementById(
+            "notEligibleCount"
+        ).textContent =
+            summary.not_eligible || 0;
+    }
+
+
+    /* =========================
+       SCHEMES
+    ========================= */
+
+    function showSchemes() {
+
+        const container =
+            document.getElementById("schemes");
+
+        if (!result || !result.schemes) {
+
+            container.innerHTML = `
+                <div class="noResults">
+                    No scheme result found.
+                    Please submit your profile again.
+                </div>
+            `;
+
+            return;
+        }
+
+        if (result.schemes.length === 0) {
+
+            container.innerHTML = `
+                <div class="noResults">
+                    No government schemes found.
+                </div>
+            `;
+
+            return;
+        }
+
+
+        container.innerHTML =
+            result.schemes.map(
+                scheme => createSchemeCard(scheme)
+            ).join("");
+    }
+
+
+    /* =========================
+       SCHEME CARD
+    ========================= */
+
+    function createSchemeCard(scheme) {
+
+        const percentage =
+            Number(
+                scheme.eligibility_percentage || 0
+            );
+
+        let statusClass = "Not";
+
+        if (scheme.status === "Eligible") {
+
+            statusClass = "Eligible";
+
+        } else if (
+            scheme.status === "Partially Eligible"
+        ) {
+
+            statusClass = "Partially";
+
+        }
+
+
+        let reasonsHTML = "";
+
+        if (
+            scheme.reasons &&
+            scheme.reasons.length
+        ) {
+
+            reasonsHTML = `
+
+                <div class="details">
+
+                    <strong>
+                        Why this result?
+                    </strong>
+
+                    <ul>
+
+                        ${scheme.reasons.map(
+                            reason =>
+                            `<li>${reason}</li>`
+                        ).join("")}
+
+                    </ul>
+
+                </div>
+
+            `;
+        }
+
+
+        let missingHTML = "";
+
+        if (
+            scheme.missing_documents &&
+            scheme.missing_documents.length
+        ) {
+
+            missingHTML = `
+
+                <div class="details">
+
+                    <strong class="missing">
+                        Missing Documents
+                    </strong>
+
+                    <ul>
+
+                        ${scheme.missing_documents.map(
+                            doc =>
+                            `<li class="missing">
+                                ${formatDocument(doc)}
+                            </li>`
+                        ).join("")}
+
+                    </ul>
+
+                </div>
+
+            `;
+        }
+
+
+        return `
+
+            <div class="scheme">
+
+                <div class="schemeTop">
+
+                    <div>
+
+                        <h3>
+                            ${scheme.scheme_name || "Government Scheme"}
+                        </h3>
+
+                        <div class="category">
+                            ${scheme.category || "Government Scheme"}
+                        </div>
+
+                    </div>
+
+                    <div class="percentage">
+                        ${percentage}% Match
+                    </div>
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <strong>
+                        Benefit:
+                    </strong>
+
+                    ${scheme.benefit || "Government benefit available to eligible beneficiaries."}
+
+                </div>
+
+
+                <span class="status ${statusClass}">
+                    ${scheme.status || "Result"}
+                </span>
+
+
+                ${reasonsHTML}
+
+                ${missingHTML}
+
+            </div>
+
+        `;
+    }
+
+
+    /* =========================
+       HELPERS
+    ========================= */
+
+    function formatText(value) {
+
+        if (!value) return "Not specified";
+
+        return value
+            .replaceAll("_", " ")
+            .replace(/\b\w/g, c => c.toUpperCase());
+    }
+
+
+    function formatIncome(value) {
+
+        const incomeMap = {
+
+            "below_1_lakh": "Below ₹1 Lakh",
+
+            "1_2_lakh": "₹1–2 Lakh",
+
+            "2_5_lakh": "₹2–5 Lakh",
+
+            "5_8_lakh": "₹5–8 Lakh",
+
+            "above_8_lakh": "Above ₹8 Lakh"
+
+        };
+
+        return incomeMap[value] || value || "Not specified";
+    }
+
+
+    function formatDocument(value) {
+
+        const documentMap = {
+
+            aadhaar: "Aadhaar Card",
+
+            marksheet: "Marksheet",
+
+            studentId: "Student ID Card",
+
+            disabilityCertificate:
+                "Disability Certificate"
+
+        };
+
+        return documentMap[value] || formatText(value);
+    }
+
+
+    /* =========================
+       BACK BUTTON
+    ========================= */
+
+    function goBack() {
+
+        window.location.href =
+            "details.html";
+
+    }
+
+
+    /* =========================
+       START
+    ========================= */
+
+    showProfile();
+
+    showSummary();
+
+    showSchemes();
+
+</script>
+
+</body>
+</html>

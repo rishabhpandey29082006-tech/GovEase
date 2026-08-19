@@ -1,0 +1,1956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GovEase | Government Schemes</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    font-family:"DM Sans",sans-serif;
+    color:#17324d;
+    overflow-x:hidden;
+
+    background:
+        radial-gradient(circle at 10% 5%,rgba(255,213,92,.30),transparent 24%),
+        radial-gradient(circle at 90% 10%,rgba(255,236,180,.45),transparent 28%),
+        radial-gradient(circle at 80% 90%,rgba(90,180,130,.12),transparent 28%),
+        linear-gradient(135deg,#f8faf7,#fffdf6,#f3f7f5);
+}
+
+
+/* =========================================
+   GOLDEN RAYS
+========================================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:150vw;
+    height:150vw;
+    left:-25vw;
+    top:-70vw;
+    pointer-events:none;
+
+    background:
+        repeating-conic-gradient(
+            from 0deg at 50% 0%,
+            rgba(226,174,55,.10) 0deg,
+            transparent 7deg,
+            transparent 17deg
+        );
+
+    animation:goldenRays 25s linear infinite;
+}
+
+@keyframes goldenRays{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+.page{
+    width:min(1120px,94%);
+    margin:auto;
+    padding:25px 0 45px;
+    position:relative;
+    z-index:2;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+.brandIcon{
+    width:47px;
+    height:47px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:14px;
+
+    background:white;
+
+    border:3px solid #16844a;
+
+    box-shadow:
+        0 0 0 2px #f47c20,
+        0 8px 20px rgba(30,60,50,.12);
+
+    color:#174e86;
+    font-size:22px;
+}
+
+.brandName{
+    color:#173b62;
+    font-family:"Space Grotesk",sans-serif;
+    font-size:23px;
+    font-weight:800;
+}
+
+.brandName span{
+    color:#16844a;
+}
+
+.brandSub{
+    margin-top:2px;
+    color:#7b8792;
+    font-size:8px;
+}
+
+.back{
+    padding:10px 14px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    color:#36516b;
+    background:rgba(255,255,255,.78);
+
+    border:1px solid #dfe5e3;
+
+    font-size:9px;
+    font-weight:800;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero{
+    padding:28px;
+    margin-bottom:20px;
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,.90);
+
+    border:1px solid rgba(255,255,255,.95);
+
+    box-shadow:
+        0 20px 60px rgba(35,55,70,.11);
+
+    backdrop-filter:blur(14px);
+}
+
+.badge{
+    display:inline-block;
+
+    padding:7px 12px;
+
+    border-radius:20px;
+
+    background:#fff7dc;
+    color:#8a6418;
+
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.hero h1{
+    margin-top:11px;
+
+    color:#173b62;
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:34px;
+}
+
+.hero p{
+    max-width:750px;
+
+    margin-top:7px;
+
+    color:#687788;
+
+    font-size:11px;
+    line-height:1.7;
+}
+
+
+/* =========================================
+   PROFILE
+========================================= */
+
+.profile{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+
+    margin-top:17px;
+}
+
+.profileTag{
+    padding:8px 11px;
+
+    border-radius:20px;
+
+    color:#496176;
+
+    background:#f4f7f5;
+
+    border:1px solid #e3eae5;
+
+    font-size:9px;
+    font-weight:700;
+}
+
+
+/* =========================================
+   DASHBOARD
+========================================= */
+
+.dashboard{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:12px;
+
+    margin-bottom:22px;
+}
+
+.dashboardCard{
+    padding:17px;
+
+    border-radius:17px;
+
+    background:rgba(255,255,255,.90);
+
+    border:1px solid #e8ece9;
+
+    box-shadow:0 12px 35px rgba(35,55,70,.07);
+}
+
+.dashboardIcon{
+    font-size:20px;
+}
+
+.dashboardNumber{
+    margin-top:7px;
+
+    color:#173b62;
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:24px;
+    font-weight:800;
+}
+
+.dashboardText{
+    margin-top:2px;
+
+    color:#7b8792;
+
+    font-size:9px;
+    font-weight:600;
+}
+
+
+/* =========================================
+   TOOLBAR
+========================================= */
+
+.toolbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:14px;
+}
+
+.toolbarTitle{
+    color:#173b62;
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:21px;
+    font-weight:800;
+}
+
+.toolbarRight{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.search{
+    width:220px;
+    height:38px;
+
+    padding:0 12px;
+
+    border:1px solid #dce3df;
+
+    border-radius:10px;
+
+    outline:none;
+
+    background:white;
+
+    color:#344054;
+
+    font-family:"DM Sans",sans-serif;
+
+    font-size:10px;
+}
+
+.search:focus{
+    border-color:#16844a;
+
+    box-shadow:
+        0 0 0 3px rgba(22,132,74,.08);
+}
+
+.sort{
+    height:38px;
+
+    padding:0 10px;
+
+    border:1px solid #dce3df;
+
+    border-radius:10px;
+
+    background:white;
+
+    color:#475467;
+
+    font-size:9px;
+}
+
+
+/* =========================================
+   SCHEME CARD
+========================================= */
+
+.scheme{
+    margin-bottom:16px;
+
+    padding:22px;
+
+    border-radius:21px;
+
+    background:rgba(255,255,255,.94);
+
+    border:1px solid #e8ece9;
+
+    box-shadow:
+        0 16px 45px rgba(35,55,70,.09);
+
+    transition:.25s;
+}
+
+.scheme:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 20px 55px rgba(35,55,70,.13);
+}
+
+.schemeTop{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:15px;
+}
+
+.schemeName{
+    color:#173b62;
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:20px;
+
+    font-weight:800;
+}
+
+.category{
+    margin-top:4px;
+
+    color:#8b98a4;
+
+    font-size:8px;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+
+    letter-spacing:.7px;
+}
+
+.status{
+    padding:8px 11px;
+
+    border-radius:10px;
+
+    white-space:nowrap;
+
+    font-size:9px;
+
+    font-weight:800;
+}
+
+.green{
+    color:#166534;
+
+    background:#ecfdf3;
+
+    border:1px solid #bbf7d0;
+}
+
+.yellow{
+    color:#92400e;
+
+    background:#fffbeb;
+
+    border:1px solid #fde68a;
+}
+
+.red{
+    color:#b42318;
+
+    background:#fff1f2;
+
+    border:1px solid #fecdd3;
+}
+
+
+/* =========================================
+   SCORE
+========================================= */
+
+.scoreArea{
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin:17px 0;
+
+    padding:14px;
+
+    border-radius:15px;
+
+    background:#f8faf8;
+
+    border:1px solid #edf1ee;
+}
+
+.scoreCircle{
+    width:68px;
+    height:68px;
+
+    flex-shrink:0;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(135deg,#fff8dc,#edf8f1);
+
+    border:4px solid white;
+
+    box-shadow:
+        0 5px 18px rgba(80,100,80,.12);
+
+    color:#17623f;
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:17px;
+
+    font-weight:800;
+}
+
+.scoreText{
+    color:#73808c;
+
+    font-size:9px;
+
+    line-height:1.7;
+}
+
+.scoreText strong{
+    display:block;
+
+    margin-bottom:2px;
+
+    color:#344054;
+
+    font-size:12px;
+}
+
+
+/* =========================================
+   PROGRESS BAR
+========================================= */
+
+.progress{
+    height:7px;
+
+    margin-top:9px;
+
+    overflow:hidden;
+
+    border-radius:10px;
+
+    background:#e8eeea;
+}
+
+.progressFill{
+    height:100%;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #16844a,
+            #dcae39
+        );
+
+    transition:width 1s ease;
+}
+
+
+/* =========================================
+   CONDITIONS
+========================================= */
+
+.conditionTitle{
+    margin-bottom:9px;
+
+    color:#344054;
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:13px;
+
+    font-weight:700;
+}
+
+.conditions{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:7px;
+
+    margin-bottom:16px;
+}
+
+.condition{
+    padding:9px 11px;
+
+    border-radius:9px;
+
+    font-size:9px;
+
+    line-height:1.5;
+}
+
+.pass{
+    color:#166534;
+
+    background:#f0fdf4;
+
+    border:1px solid #dcfce7;
+}
+
+.fail{
+    color:#b42318;
+
+    background:#fff1f2;
+
+    border:1px solid #ffe4e6;
+}
+
+
+/* =========================================
+   INFO
+========================================= */
+
+.infoGrid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:10px;
+}
+
+.info{
+    padding:13px;
+
+    border-radius:13px;
+
+    background:#fafcfb;
+
+    border:1px solid #e7ece9;
+}
+
+.infoTitle{
+    margin-bottom:5px;
+
+    color:#7a8793;
+
+    font-size:8px;
+
+    font-weight:800;
+
+    text-transform:uppercase;
+
+    letter-spacing:.5px;
+}
+
+.infoText{
+    color:#45576a;
+
+    font-size:9px;
+
+    line-height:1.6;
+}
+
+
+/* =========================================
+   DETAILS
+========================================= */
+
+.details{
+    display:none;
+
+    margin-top:16px;
+
+    padding-top:16px;
+
+    border-top:1px solid #e7ece9;
+}
+
+.details.open{
+    display:block;
+}
+
+.details h3{
+    margin-bottom:6px;
+
+    color:#344054;
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:13px;
+}
+
+.details p,
+.details li{
+    color:#6b7885;
+
+    font-size:9px;
+
+    line-height:1.7;
+}
+
+.details ul{
+    margin:0 0 13px 17px;
+}
+
+.viewBtn{
+    width:100%;
+
+    margin-top:14px;
+
+    padding:11px;
+
+    border:0;
+
+    border-radius:10px;
+
+    background:#f0f6f2;
+
+    color:#17623f;
+
+    font-family:"DM Sans",sans-serif;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    cursor:pointer;
+}
+
+.viewBtn:hover{
+    background:#e5f1e9;
+}
+
+
+/* =========================================
+   OFFICIAL LINK
+========================================= */
+
+.official{
+    display:inline-block;
+
+    margin-top:13px;
+
+    padding:10px 13px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    color:white;
+
+    background:#174e86;
+
+    font-size:9px;
+
+    font-weight:800;
+}
+
+
+/* =========================================
+   NO RESULT
+========================================= */
+
+.noResult{
+    padding:30px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    background:white;
+
+    border:1px solid #e7ece9;
+
+    color:#71808d;
+
+    font-size:11px;
+}
+
+
+/* =========================================
+   NOTE
+========================================= */
+
+.note{
+    margin-top:18px;
+
+    padding:15px;
+
+    border-radius:13px;
+
+    background:rgba(255,255,255,.75);
+
+    border:1px solid #e7ece9;
+
+    color:#71808d;
+
+    font-size:8px;
+
+    line-height:1.7;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:700px){
+
+    .page{
+        width:94%;
+        padding-top:17px;
+    }
+
+    .hero{
+        padding:21px;
+    }
+
+    .hero h1{
+        font-size:27px;
+    }
+
+    .dashboard{
+        grid-template-columns:1fr;
+    }
+
+    .toolbar{
+        align-items:stretch;
+
+        flex-direction:column;
+    }
+
+    .toolbarRight{
+        width:100%;
+    }
+
+    .search{
+        width:100%;
+    }
+
+    .scheme{
+        padding:18px;
+    }
+
+    .schemeTop{
+        flex-direction:column;
+    }
+
+    .status{
+        width:100%;
+        text-align:center;
+    }
+
+    .conditions,
+    .infoGrid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="page">
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<div class="header">
+
+    <div class="brand">
+
+        <div class="brandIcon">
+            ✦
+        </div>
+
+        <div>
+
+            <div class="brandName">
+                Gov<span>Ease</span>
+            </div>
+
+            <div class="brandSub">
+                Your Gateway to Government Benefits
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <a
+        href="details.html"
+        class="back"
+    >
+        ← Edit Details
+    </a>
+
+</div>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<div class="hero">
+
+    <div class="badge">
+        PERSONALIZED GOVERNMENT BENEFITS
+    </div>
+
+    <h1>
+        Schemes Recommended For You
+    </h1>
+
+    <p>
+        GovEase compares your profile with the
+        configured scheme conditions and shows
+        the closest matches first.
+    </p>
+
+
+    <div
+        id="profile"
+        class="profile"
+    ></div>
+
+</div>
+
+
+<!-- =========================================
+     DASHBOARD
+========================================= -->
+
+<div class="dashboard">
+
+
+    <div class="dashboardCard">
+
+        <div class="dashboardIcon">
+            🏛️
+        </div>
+
+        <div
+            id="totalSchemes"
+            class="dashboardNumber"
+        >
+            0
+        </div>
+
+        <div class="dashboardText">
+            Total Schemes
+        </div>
+
+    </div>
+
+
+    <div class="dashboardCard">
+
+        <div class="dashboardIcon">
+            🎯
+        </div>
+
+        <div
+            id="strongMatches"
+            class="dashboardNumber"
+        >
+            0
+        </div>
+
+        <div class="dashboardText">
+            Strong Matches
+        </div>
+
+    </div>
+
+
+    <div class="dashboardCard">
+
+        <div class="dashboardIcon">
+            ⭐
+        </div>
+
+        <div
+            id="bestScore"
+            class="dashboardNumber"
+        >
+            0%
+        </div>
+
+        <div class="dashboardText">
+            Best Match Score
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- =========================================
+     TOOLBAR
+========================================= -->
+
+<div class="toolbar">
+
+    <div class="toolbarTitle">
+        Your Scheme Matches
+    </div>
+
+
+    <div class="toolbarRight">
+
+        <input
+            id="search"
+            class="search"
+            type="search"
+            placeholder="Search schemes..."
+        >
+
+
+        <select
+            id="sort"
+            class="sort"
+        >
+
+            <option value="score">
+                Best Match
+            </option>
+
+            <option value="name">
+                Name
+            </option>
+
+        </select>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     SCHEME LIST
+========================================= -->
+
+<div id="schemeList"></div>
+
+
+<!-- =========================================
+     NOTE
+========================================= -->
+
+<div class="note">
+
+    <strong>Important:</strong>
+    The percentage shown is a
+    <strong>GovEase Match Score</strong>.
+    It indicates how many configured conditions
+    matched your entered profile. It is
+    <strong>not an official government eligibility percentage</strong>.
+    Final eligibility is always decided by the concerned
+    government authority.
+
+</div>
+
+
+</div>
+
+
+<script>
+
+/* =========================================
+   GET USER DETAILS
+========================================= */
+
+const stored =
+    localStorage.getItem("userDetails");
+
+const list =
+    document.getElementById("schemeList");
+
+
+if(!stored){
+
+    list.innerHTML = `
+
+        <div class="noResult">
+
+            <h3>
+                Profile Not Found
+            </h3>
+
+            <p style="margin-top:7px;">
+                Please complete your details first.
+            </p>
+
+        </div>
+
+    `;
+
+}
+else{
+
+    const user =
+        JSON.parse(stored);
+
+
+    /* =====================================
+       PROFILE
+    ===================================== */
+
+    document.getElementById("profile").innerHTML = `
+
+        <span class="profileTag">
+            👤 ${safe(user.name)}
+        </span>
+
+        <span class="profileTag">
+            🎂 ${safe(user.age)} years
+        </span>
+
+        <span class="profileTag">
+            📍 ${safe(user.state)}
+        </span>
+
+        <span class="profileTag">
+            🎓 ${safe(user.education)}
+        </span>
+
+        <span class="profileTag">
+            📊 ${safe(user.percentage)}%
+        </span>
+
+        <span class="profileTag">
+            ${safe(user.category)}
+        </span>
+
+    `;
+
+
+    /* =====================================
+       SCHEME DATABASE
+    ===================================== */
+
+    const schemes = [
+
+        {
+
+            name:"Post-Matric Scholarship",
+
+            category:"Education • Scholarship",
+
+            benefit:
+                "Financial assistance may be available to eligible students under the applicable scholarship programme.",
+
+            eligibility:
+                "Eligibility depends on the applicable post-matric scholarship rules, category, income and other conditions.",
+
+            description:
+                "This category represents post-matric scholarship opportunities for eligible students.",
+
+            documents:[
+                "Aadhaar / valid ID",
+                "Latest marksheet",
+                "Bank account details",
+                "Income / category documents where applicable"
+            ],
+
+            link:
+                "https://scholarships.gov.in/",
+
+            rules:[
+
+                {
+                    label:"Post-matric education",
+                    pass:[
+                        "12th",
+                        "diploma",
+                        "graduate",
+                        "postgraduate"
+                    ].includes(user.education)
+                },
+
+                {
+                    label:"Percentage information provided",
+                    pass:
+                        Number(user.percentage) >= 0
+                },
+
+                {
+                    label:"Marksheet selected",
+                    pass:
+                        Boolean(
+                            user.documents &&
+                            user.documents.marksheet
+                        )
+                },
+
+                {
+                    label:"Identity document selected",
+                    pass:
+                        Boolean(
+                            user.documents &&
+                            user.documents.idDocument
+                        )
+                }
+
+            ]
+
+        },
+
+
+        {
+
+            name:"PM-KISAN Samman Nidhi",
+
+            category:"Agriculture • Income Support",
+
+            benefit:
+                "Eligible farmer families may receive income support under the applicable PM-KISAN rules.",
+
+            eligibility:
+                "Eligibility depends on landholding status, exclusions and other official conditions.",
+
+            description:
+                "PM-KISAN provides income support to eligible landholding farmer families subject to official conditions.",
+
+            documents:[
+                "Aadhaar / valid ID",
+                "Land-related records",
+                "Bank account details"
+            ],
+
+            link:
+                "https://pmkisan.gov.in/",
+
+            rules:[
+
+                {
+                    label:"Farmer occupation",
+                    pass:
+                        user.occupation === "farmer"
+                },
+
+                {
+                    label:"Age 18 or above",
+                    pass:
+                        Number(user.age) >= 18
+                },
+
+                {
+                    label:"Identity document selected",
+                    pass:
+                        Boolean(
+                            user.documents &&
+                            user.documents.idDocument
+                        )
+                },
+
+                {
+                    label:"State information provided",
+                    pass:
+                        Boolean(user.state)
+                }
+
+            ]
+
+        },
+
+
+        {
+
+            name:"Pradhan Mantri Ujjwala Yojana",
+
+            category:"Women • LPG Support",
+
+            benefit:
+                "Eligible beneficiaries may receive support under the applicable Ujjwala Yojana provisions.",
+
+            eligibility:
+                "Eligibility depends on the official household and beneficiary conditions.",
+
+            description:
+                "The scheme supports eligible adult women from households meeting the prescribed conditions.",
+
+            documents:[
+                "Aadhaar / valid ID",
+                "Address / household information",
+                "Bank details where applicable"
+            ],
+
+            link:
+                "https://www.pmuy.gov.in/",
+
+            rules:[
+
+                {
+                    label:"Age 18 or above",
+                    pass:
+                        Number(user.age) >= 18
+                },
+
+                {
+                    label:"Female applicant",
+                    pass:
+                        user.gender === "Female"
+                },
+
+                {
+                    label:"Identity document selected",
+                    pass:
+                        Boolean(
+                            user.documents &&
+                            user.documents.idDocument
+                        )
+                },
+
+                {
+                    label:"State information provided",
+                    pass:
+                        Boolean(user.state)
+                }
+
+            ]
+
+        },
+
+
+        {
+
+            name:"PM-AJAY",
+
+            category:"Social Justice • SC",
+
+            benefit:
+                "Eligible beneficiaries may receive support through applicable PM-AJAY components.",
+
+            eligibility:
+                "Eligibility depends on the applicable component and prescribed government conditions.",
+
+            description:
+                "PM-AJAY focuses on socio-economic development through applicable interventions.",
+
+            documents:[
+                "Aadhaar / valid ID",
+                "Category certificate where applicable",
+                "Education documents where applicable"
+            ],
+
+            link:
+                "https://socialjustice.gov.in/",
+
+            rules:[
+
+                {
+                    label:"SC category",
+                    pass:
+                        user.category === "SC"
+                },
+
+                {
+                    label:"Education information provided",
+                    pass:
+                        Boolean(user.education)
+                },
+
+                {
+                    label:"Identity document selected",
+                    pass:
+                        Boolean(
+                            user.documents &&
+                            user.documents.idDocument
+                        )
+                },
+
+                {
+                    label:"Age information provided",
+                    pass:
+                        Number(user.age) > 0
+                }
+
+            ]
+
+        },
+
+
+        {
+
+            name:"Merit-Based Education Support",
+
+            category:"Education • Merit",
+
+            benefit:
+                "Education assistance may be available under applicable merit-based programmes.",
+
+            eligibility:
+                "Eligibility depends on the particular programme's academic and other conditions.",
+
+            description:
+                "GovEase uses this category to demonstrate academic-performance based matching.",
+
+            documents:[
+                "Aadhaar / valid ID",
+                "Latest marksheet",
+                "Student documents"
+            ],
+
+            link:
+                "https://www.myscheme.gov.in/",
+
+            rules:[
+
+                {
+                    label:"Student occupation",
+                    pass:
+                        user.occupation === "student"
+                },
+
+                {
+                    label:"Percentage 60% or above",
+                    pass:
+                        Number(user.percentage) >= 60
+                },
+
+                {
+                    label:"Marksheet selected",
+                    pass:
+                        Boolean(
+                            user.documents &&
+                            user.documents.marksheet
+                        )
+                },
+
+                {
+                    label:"Education information provided",
+                    pass:
+                        Boolean(user.education)
+                }
+
+            ]
+
+        }
+
+    ];
+
+
+    /* =====================================
+       CALCULATE SCORES
+    ===================================== */
+
+    let results =
+        schemes.map(function(scheme){
+
+            let passed = 0;
+
+            scheme.rules.forEach(function(rule){
+
+                if(rule.pass){
+                    passed++;
+                }
+
+            });
+
+
+            const total =
+                scheme.rules.length;
+
+
+            const score =
+                Math.round(
+                    (passed / total) * 100
+                );
+
+
+            let status;
+            let statusClass;
+
+
+            if(score === 100){
+
+                status =
+                    "ELIGIBLE MATCH";
+
+                statusClass =
+                    "green";
+
+            }
+            else if(score >= 75){
+
+                status =
+                    "STRONG MATCH";
+
+                statusClass =
+                    "green";
+
+            }
+            else if(score >= 50){
+
+                status =
+                    "PARTIAL MATCH";
+
+                statusClass =
+                    "yellow";
+
+            }
+            else{
+
+                status =
+                    "LOW MATCH";
+
+                statusClass =
+                    "red";
+
+            }
+
+
+            return {
+
+                scheme:scheme,
+                passed:passed,
+                total:total,
+                score:score,
+                status:status,
+                statusClass:statusClass
+
+            };
+
+        });
+
+
+    /* =====================================
+       DASHBOARD
+    ===================================== */
+
+    document.getElementById("totalSchemes")
+        .textContent = schemes.length;
+
+
+    document.getElementById("strongMatches")
+        .textContent =
+        results.filter(function(item){
+
+            return item.score >= 75;
+
+        }).length;
+
+
+    const best =
+        Math.max.apply(
+            null,
+            results.map(function(item){
+
+                return item.score;
+
+            })
+        );
+
+
+    document.getElementById("bestScore")
+        .textContent =
+        best + "%";
+
+
+    /* =====================================
+       RENDER
+    ===================================== */
+
+    function render(){
+
+        const searchValue =
+            document.getElementById("search")
+            .value
+            .toLowerCase()
+            .trim();
+
+
+        const sortValue =
+            document.getElementById("sort").value;
+
+
+        let filtered =
+            results.filter(function(item){
+
+                return (
+
+                    item.scheme.name
+                    .toLowerCase()
+                    .includes(searchValue)
+
+                    ||
+
+                    item.scheme.category
+                    .toLowerCase()
+                    .includes(searchValue)
+
+                );
+
+            });
+
+
+        filtered.sort(function(a,b){
+
+            if(sortValue === "name"){
+
+                return a.scheme.name
+                    .localeCompare(
+                        b.scheme.name
+                    );
+
+            }
+
+            return b.score - a.score;
+
+        });
+
+
+        list.innerHTML = "";
+
+
+        if(filtered.length === 0){
+
+            list.innerHTML = `
+
+                <div class="noResult">
+
+                    No scheme found.
+
+                    <div style="
+                        margin-top:6px;
+                        font-size:9px;
+                    ">
+                        Try another search.
+                    </div>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        filtered.forEach(function(result){
+
+            createCard(result);
+
+        });
+
+    }
+
+
+    /* =====================================
+       CREATE CARD
+    ===================================== */
+
+    function createCard(result){
+
+        const scheme =
+            result.scheme;
+
+
+        let conditions = "";
+
+
+        scheme.rules.forEach(function(rule){
+
+            conditions += `
+
+                <div class="
+                    condition
+                    ${rule.pass ? "pass" : "fail"}
+                ">
+
+                    ${rule.pass ? "✓" : "✕"}
+
+                    ${safe(rule.label)}
+
+                </div>
+
+            `;
+
+        });
+
+
+        let documents = "";
+
+
+        scheme.documents.forEach(function(doc){
+
+            documents += `
+
+                <li>
+                    ${safe(doc)}
+                </li>
+
+            `;
+
+        });
+
+
+        const card =
+            document.createElement("div");
+
+
+        card.className =
+            "scheme";
+
+
+        card.innerHTML = `
+
+            <div class="schemeTop">
+
+                <div>
+
+                    <div class="schemeName">
+                        ${safe(scheme.name)}
+                    </div>
+
+                    <div class="category">
+                        ${safe(scheme.category)}
+                    </div>
+
+                </div>
+
+
+                <div class="
+                    status
+                    ${result.statusClass}
+                ">
+
+                    ${result.status}
+
+                </div>
+
+            </div>
+
+
+            <div class="scoreArea">
+
+                <div class="scoreCircle">
+
+                    ${result.score}%
+
+                </div>
+
+
+                <div class="scoreText">
+
+                    <strong>
+                        GovEase Match Score
+                    </strong>
+
+                    ${result.passed}
+                    of
+                    ${result.total}
+                    configured conditions matched.
+
+                    <div class="progress">
+
+                        <div
+                            class="progressFill"
+                            style="width:${result.score}%"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="conditionTitle">
+                Eligibility Check
+            </div>
+
+
+            <div class="conditions">
+
+                ${conditions}
+
+            </div>
+
+
+            <div class="infoGrid">
+
+
+                <div class="info">
+
+                    <div class="infoTitle">
+                        Eligibility
+                    </div>
+
+                    <div class="infoText">
+                        ${safe(scheme.eligibility)}
+                    </div>
+
+                </div>
+
+
+                <div class="info">
+
+                    <div class="infoTitle">
+                        Benefits
+                    </div>
+
+                    <div class="infoText">
+                        ${safe(scheme.benefit)}
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <button
+                class="viewBtn"
+                onclick="toggleDetails(this)"
+            >
+
+                View Complete Scheme Details ↓
+
+            </button>
+
+
+            <div class="details">
+
+                <h3>
+                    About This Scheme
+                </h3>
+
+                <p>
+                    ${safe(scheme.description)}
+                </p>
+
+
+                <h3 style="margin-top:14px;">
+                    Required Documents
+                </h3>
+
+                <ul>
+                    ${documents}
+                </ul>
+
+
+                <h3>
+                    Why GovEase Recommended It
+                </h3>
+
+                <p>
+                    GovEase compared the information
+                    entered in your profile with the
+                    conditions configured for this
+                    demonstration.
+                </p>
+
+
+                <a
+                    class="official"
+                    href="${safe(scheme.link)}"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    View Official Information →
+                </a>
+
+            </div>
+
+        `;
+
+
+        list.appendChild(card);
+
+    }
+
+
+    /* =====================================
+       SEARCH + SORT
+    ===================================== */
+
+    document
+        .getElementById("search")
+        .addEventListener(
+            "input",
+            render
+        );
+
+
+    document
+        .getElementById("sort")
+        .addEventListener(
+            "change",
+            render
+        );
+
+
+    render();
+
+}
+
+
+/* =========================================
+   TOGGLE DETAILS
+========================================= */
+
+function toggleDetails(button){
+
+    const details =
+        button.nextElementSibling;
+
+
+    details.classList.toggle("open");
+
+
+    if(details.classList.contains("open")){
+
+        button.textContent =
+            "Hide Complete Scheme Details ↑";
+
+    }
+    else{
+
+        button.textContent =
+            "View Complete Scheme Details ↓";
+
+    }
+
+}
+
+
+/* =========================================
+   SAFE TEXT
+========================================= */
+
+function safe(value){
+
+    return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+</script>
+
+</body>
+</html>
