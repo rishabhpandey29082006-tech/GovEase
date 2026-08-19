@@ -1,0 +1,686 @@
+[
+  {
+    "id": "pm_kisan",
+    "name": "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)",
+    "category": "Agriculture",
+    "level": "Central",
+    "benefit": "Income support for eligible landholding farmer families.",
+    "eligibility": {
+      "occupations": ["farmer"],
+      "minimum_age": 18,
+      "documents": ["aadhaar"]
+    }
+  },
+  {
+    "id": "pm_kisan_maandhan",
+    "name": "Pradhan Mantri Kisan Maandhan Yojana",
+    "category": "Agriculture & Pension",
+    "level": "Central",
+    "benefit": "Pension support for eligible small and marginal farmers.",
+    "eligibility": {
+      "occupations": ["farmer"],
+      "minimum_age": 18,
+      "documents": ["aadhaar"]
+    }
+  },
+  {
+    "id": "kisan_credit_card",
+    "name": "Kisan Credit Card",
+    "category": "Agriculture & Finance",
+    "level": "Central",
+    "benefit": "Credit support for eligible farmers.",
+    "eligibility": {
+      "occupations": ["farmer"],
+      "documents": ["aadhaar"]
+    }
+  },
+  {
+    "id": "pm_fasal_bima",
+    "name": "Pradhan Mantri Fasal Bima Yojana",
+    "category": "Agriculture & Insurance",
+    "level": "Central",
+    "benefit": "Crop insurance support for eligible farmers.",
+    "eligibility": {
+      "occupations": ["farmer"],
+      "documents": ["aadhaar"]
+    }
+  },
+  {
+    "id": "pm_krishi_sinchayee",
+    "name": "Pradhan Mantri Krishi Sinchayee Yojana",
+    "category": "Agriculture",
+    "level": "Central",
+    "benefit": "Support for improving irrigation and water-use efficiency.",
+    "eligibility": {
+      "occupations": ["farmer"]
+    }
+  },
+  {
+    "id": "pm_matsya_sampada",
+    "name": "Pradhan Mantri Matsya Sampada Yojana",
+    "category": "Fisheries",
+    "level": "Central",
+    "benefit": "Support for eligible fisheries and aquaculture activities.",
+    "eligibility": {
+      "occupations": ["fisher"]
+    }
+  },
+  {
+    "id": "pmay_gramin",
+    "name": "Pradhan Mantri Awaas Yojana - Gramin",
+    "category": "Housing",
+    "level": "Central",
+    "benefit": "Housing support for eligible rural households.",
+    "eligibility": {
+      "documents": ["aadhaar"]
+    }
+  },
+  {
+    "id": "pmay_urban",
+    "name": "Pradhan Mantri Awas Yojana - Urban",
+    "category": "Housing",
+    "level": "Central",
+    "benefit": "Housing assistance for eligible urban beneficiaries.",
+    "eligibility": {
+      "documents": ["aadhaar"]
+    }
+  },
+  {
+    "id": "pm_ujjwala",
+    "name": "Pradhan Mantri Ujjwala Yojana",
+    "category": "Women & LPG",
+    "level": "Central",
+    "benefit": "LPG connection support for eligible women.",
+    "eligibility": {
+      "gender": ["Female"],
+      "minimum_age": 18,
+      "documents": ["aadhaar"]
+    }
+  },
+  {
+    "id": "pm_jan_dhan",
+    "name": "Pradhan Mantri Jan-Dhan Yojana",
+    "category": "Banking & Finance",
+    "level": "Central",
+    "benefit": "Access to basic banking services for eligible individuals.",
+    "eligibility": {
+      "documents": ["aadhaar"]
+    }
+  },
+  {
+    "id": "pm_suraksha_bima",
+    "name": "Pradhan Mantri Suraksha Bima Yojana",
+    "category": "Insurance",
+    "level": "Central",
+    "benefit": "Accident insurance coverage under the scheme.",
+    "eligibility": {
+      "minimum_age": 18,
+      "maximum_age": 70,
+      "documents": ["aadhaar"]
+    }
+  },
+  {
+    "id": "pm_jeevan_jyoti",
+    "name": "Pradhan Mantri Jeevan Jyoti Bima Yojana",
+    "category": "Insurance",
+    "level": "Central",
+    "benefit": "Life insurance coverage for eligible subscribers.",
+    "eligibility": {
+      "minimum_age": 18,
+      "maximum_age": 50,
+      "documents": ["aadhaar"]
+    }
+  },
+  {
+    "id": "atal_pension",
+    "name": "Atal Pension Yojana",
+    "category": "Pension",
+    "level": "Central",
+    "benefit": "Pension support through a contributory pension scheme.",
+    "eligibility": {
+      "minimum_age": 18,
+      "maximum_age": 40,
+      "documents": ["aadhaar"]
+    }
+  },
+  {
+    "id": "pm_svanidhi",
+    "name": "PM Street Vendor's AtmaNirbhar Nidhi",
+    "category": "Business & Entrepreneurship",
+    "level": "Central",
+    "benefit": "Working capital support for eligible street vendors.",
+    "eligibility": {
+      "occupations": ["street_vendor"],
+      "documents": ["aadhaar"]
+    }
+  },
+  {
+    "id": "mudra",
+    "name": "Pradhan Mantri Mudra Yojana",
+    "category": "Business & Entrepreneurship",
+    "level": "Central",
+    "benefit": "Credit support for eligible micro enterprises.",
+    "eligibility": {
+      "occupations": ["business"],
+      "documents": ["aadhaar"]
+    }
+  },
+  {
+    "id": "stand_up_india",
+    "name": "Stand-Up India",
+    "category": "Business & Entrepreneurship",
+    "level": "Central",
+    "benefit": "Institutional credit support for eligible entrepreneurs.",
+    "eligibility": {
+      "occupations": ["business"]
+    }
+  },
+  {
+    "id": "startup_india",
+    "name": "Startup India",
+    "category": "Business & Entrepreneurship",
+    "level": "Central",
+    "benefit": "Support ecosystem for eligible startups and entrepreneurs.",
+    "eligibility": {
+      "occupations": ["business", "entrepreneur"]
+    }
+  },
+  {
+    "id": "pm_egp",
+    "name": "Prime Minister's Employment Generation Programme",
+    "category": "Employment & Business",
+    "level": "Central",
+    "benefit": "Support for eligible entrepreneurs establishing micro enterprises.",
+    "eligibility": {
+      "occupations": ["business", "unemployed"]
+    }
+  },
+  {
+    "id": "pmkvy",
+    "name": "Pradhan Mantri Kaushal Vikas Yojana",
+    "category": "Skills & Employment",
+    "level": "Central",
+    "benefit": "Skill training and certification support for eligible candidates.",
+    "eligibility": {
+      "occupations": ["student", "unemployed", "worker"]
+    }
+  },
+  {
+    "id": "ddu_gky",
+    "name": "Deen Dayal Upadhyaya Grameen Kaushalya Yojana",
+    "category": "Skills & Employment",
+    "level": "Central",
+    "benefit": "Skill development and employment support for eligible rural youth.",
+    "eligibility": {
+      "occupations": ["unemployed", "student"]
+    }
+  },
+  {
+    "id": "national_career_service",
+    "name": "National Career Service",
+    "category": "Employment",
+    "level": "Central",
+    "benefit": "Career guidance, job search and employment services.",
+    "eligibility": {
+      "occupations": ["unemployed", "student", "worker"]
+    }
+  },
+  {
+    "id": "pm_internship",
+    "name": "Prime Minister's Internship Scheme",
+    "category": "Skills & Employment",
+    "level": "Central",
+    "benefit": "Internship opportunities for eligible young people.",
+    "eligibility": {
+      "minimum_age": 18,
+      "maximum_age": 24,
+      "occupations": ["student", "unemployed"]
+    }
+  },
+  {
+    "id": "post_matric_sc",
+    "name": "Post-Matric Scholarship for SC Students",
+    "category": "Education",
+    "level": "Central",
+    "benefit": "Financial assistance for eligible SC students pursuing post-matric education.",
+    "eligibility": {
+      "categories": ["SC"],
+      "occupations": ["student"],
+      "education": ["12th", "diploma", "graduate", "postgraduate"],
+      "documents": ["aadhaar", "marksheet", "studentId"]
+    }
+  },
+  {
+    "id": "pre_matric_sc",
+    "name": "Pre-Matric Scholarship for SC Students",
+    "category": "Education",
+    "level": "Central",
+    "benefit": "Scholarship assistance for eligible SC students at pre-matric level.",
+    "eligibility": {
+      "categories": ["SC"],
+      "occupations": ["student"],
+      "documents": ["aadhaar", "studentId"]
+    }
+  },
+  {
+    "id": "top_class_sc",
+    "name": "Top Class Education Scheme for SC Students",
+    "category": "Education",
+    "level": "Central",
+    "benefit": "Education support for eligible SC students in notified institutions.",
+    "eligibility": {
+      "categories": ["SC"],
+      "occupations": ["student"],
+      "documents": ["aadhaar", "marksheet", "studentId"]
+    }
+  },
+  {
+    "id": "pm_usp_scholarship",
+    "name": "PM-USP Central Sector Scheme of Scholarship",
+    "category": "Education",
+    "level": "Central",
+    "benefit": "Scholarship support for eligible college and university students.",
+    "eligibility": {
+      "occupations": ["student"],
+      "education": ["graduate"],
+      "minimum_percentage": 60,
+      "documents": ["aadhaar", "marksheet", "studentId"]
+    }
+  },
+  {
+    "id": "pm_vidyalaxmi",
+    "name": "PM-Vidyalaxmi Scheme",
+    "category": "Education & Finance",
+    "level": "Central",
+    "benefit": "Education loan and related support for eligible students.",
+    "eligibility": {
+      "occupations": ["student"],
+      "documents": ["aadhaar", "marksheet", "studentId"]
+    }
+  },
+  {
+    "id": "national_means_merit",
+    "name": "National Means-cum-Merit Scholarship Scheme",
+    "category": "Education",
+    "level": "Central",
+    "benefit": "Scholarship support for eligible students based on prescribed conditions.",
+    "eligibility": {
+      "occupations": ["student"],
+      "documents": ["marksheet", "studentId"]
+    }
+  },
+  {
+    "id": "disability_scholarship",
+    "name": "Scholarships for Students with Disabilities",
+    "category": "Education & Disability",
+    "level": "Central",
+    "benefit": "Educational assistance for eligible students with disabilities.",
+    "eligibility": {
+      "occupations": ["student"],
+      "documents": ["aadhaar", "marksheet", "studentId", "disabilityCertificate"]
+    }
+  },
+  {
+    "id": "national_fellowship_sc",
+    "name": "National Fellowship for Scheduled Caste Students",
+    "category": "Education",
+    "level": "Central",
+    "benefit": "Fellowship support for eligible SC students pursuing higher education.",
+    "eligibility": {
+      "categories": ["SC"],
+      "occupations": ["student"],
+      "documents": ["aadhaar", "marksheet", "studentId"]
+    }
+  },
+  {
+    "id": "pmjay",
+    "name": "Ayushman Bharat - Pradhan Mantri Jan Arogya Yojana",
+    "category": "Health",
+    "level": "Central",
+    "benefit": "Health coverage for eligible beneficiary families.",
+    "eligibility": {
+      "documents": ["aadhaar"]
+    }
+  },
+  {
+    "id": "janaushadhi",
+    "name": "Pradhan Mantri Bhartiya Janaushadhi Pariyojana",
+    "category": "Health",
+    "level": "Central",
+    "benefit": "Access to affordable generic medicines through Janaushadhi outlets.",
+    "eligibility": {}
+  },
+  {
+    "id": "surakshit_matritva",
+    "name": "Pradhan Mantri Surakshit Matritva Abhiyan",
+    "category": "Health & Women",
+    "level": "Central",
+    "benefit": "Antenatal care support for pregnant women.",
+    "eligibility": {
+      "gender": ["Female"]
+    }
+  },
+  {
+    "id": "pm_matru_vandana",
+    "name": "Pradhan Mantri Matru Vandana Yojana",
+    "category": "Women & Child",
+    "level": "Central",
+    "benefit": "Maternity benefit support for eligible women.",
+    "eligibility": {
+      "gender": ["Female"],
+      "minimum_age": 18,
+      "documents": ["aadhaar"]
+    }
+  },
+  {
+    "id": "poshan_abhiyaan",
+    "name": "POSHAN Abhiyaan",
+    "category": "Women & Child",
+    "level": "Central",
+    "benefit": "Nutrition support and improvement initiatives.",
+    "eligibility": {}
+  },
+  {
+    "id": "beti_bachao_beti_padhao",
+    "name": "Beti Bachao Beti Padhao",
+    "category": "Women & Child",
+    "level": "Central",
+    "benefit": "Initiatives supporting the welfare and education of girls.",
+    "eligibility": {
+      "gender": ["Female"]
+    }
+  },
+  {
+    "id": "pm_ajay",
+    "name": "Pradhan Mantri Anusuchit Jaati Abhyuday Yojana",
+    "category": "Social Welfare",
+    "level": "Central",
+    "benefit": "Support for socio-economic development of Scheduled Castes.",
+    "eligibility": {
+      "categories": ["SC"],
+      "documents": ["aadhaar"]
+    }
+  },
+  {
+    "id": "pm_jan_vikas",
+    "name": "Pradhan Mantri Jan Vikas Karyakram",
+    "category": "Social Welfare",
+    "level": "Central",
+    "benefit": "Development support in identified areas and communities.",
+    "eligibility": {}
+  },
+  {
+    "id": "sugamya_bharat",
+    "name": "Accessible India Campaign",
+    "category": "Disability",
+    "level": "Central",
+    "benefit": "Improving accessibility for persons with disabilities.",
+    "eligibility": {
+      "documents": ["disabilityCertificate"]
+    }
+  },
+  {
+    "id": "national_trust",
+    "name": "National Trust Schemes for Persons with Disabilities",
+    "category": "Disability",
+    "level": "Central",
+    "benefit": "Support services for eligible persons with disabilities.",
+    "eligibility": {
+      "documents": ["disabilityCertificate"]
+    }
+  },
+  {
+    "id": "nsap",
+    "name": "National Social Assistance Programme",
+    "category": "Social Welfare",
+    "level": "Central",
+    "benefit": "Social assistance support for eligible beneficiaries.",
+    "eligibility": {
+      "documents": ["aadhaar"]
+    }
+  },
+  {
+    "id": "old_age_pension",
+    "name": "Indira Gandhi National Old Age Pension Scheme",
+    "category": "Senior Citizen",
+    "level": "Central",
+    "benefit": "Social pension support for eligible elderly persons.",
+    "eligibility": {
+      "minimum_age": 60,
+      "documents": ["aadhaar"]
+    }
+  },
+  {
+    "id": "widow_pension",
+    "name": "Indira Gandhi National Widow Pension Scheme",
+    "category": "Women & Social Welfare",
+    "level": "Central",
+    "benefit": "Social pension support for eligible widows.",
+    "eligibility": {
+      "gender": ["Female"],
+      "documents": ["aadhaar"]
+    }
+  },
+  {
+    "id": "disability_pension",
+    "name": "Indira Gandhi National Disability Pension Scheme",
+    "category": "Disability & Social Welfare",
+    "level": "Central",
+    "benefit": "Pension support for eligible persons with disabilities.",
+    "eligibility": {
+      "documents": ["aadhaar", "disabilityCertificate"]
+    }
+  },
+  {
+    "id": "pm_gram_sadak",
+    "name": "Pradhan Mantri Gram Sadak Yojana",
+    "category": "Rural Development",
+    "level": "Central",
+    "benefit": "Rural road connectivity development programme.",
+    "eligibility": {}
+  },
+  {
+    "id": "swachh_bharat",
+    "name": "Swachh Bharat Mission",
+    "category": "Sanitation",
+    "level": "Central",
+    "benefit": "Sanitation and cleanliness improvement initiatives.",
+    "eligibility": {}
+  },
+  {
+    "id": "jal_jeevan",
+    "name": "Jal Jeevan Mission",
+    "category": "Water & Sanitation",
+    "level": "Central",
+    "benefit": "Improving household access to safe drinking water.",
+    "eligibility": {}
+  },
+  {
+    "id": "ujala",
+    "name": "UJALA",
+    "category": "Energy",
+    "level": "Central",
+    "benefit": "Affordable energy-efficient LED lighting programme.",
+    "eligibility": {}
+  },
+  {
+    "id": "pm_kusum",
+    "name": "PM-KUSUM",
+    "category": "Energy & Agriculture",
+    "level": "Central",
+    "benefit": "Support for solar energy and agricultural power solutions.",
+    "eligibility": {
+      "occupations": ["farmer"]
+    }
+  },
+  {
+    "id": "pm_vishwakarma",
+    "name": "PM Vishwakarma",
+    "category": "Skills & Entrepreneurship",
+    "level": "Central",
+    "benefit": "Support for eligible traditional artisans and craftspeople.",
+    "eligibility": {
+      "occupations": ["artisan", "craftsperson"],
+      "documents": ["aadhaar"]
+    }
+  },
+  {
+    "id": "pmfme",
+    "name": "PM Formalisation of Micro Food Processing Enterprises",
+    "category": "Business & Entrepreneurship",
+    "level": "Central",
+    "benefit": "Support for eligible micro food processing enterprises.",
+    "eligibility": {
+      "occupations": ["business", "entrepreneur"]
+    }
+  },
+  {
+    "id": "digital_india",
+    "name": "Digital India Programme",
+    "category": "Digital Services",
+    "level": "Central",
+    "benefit": "Digital infrastructure and public service initiatives.",
+    "eligibility": {}
+  },
+  {
+    "id": "svamitva",
+    "name": "SVAMITVA Scheme",
+    "category": "Rural Development",
+    "level": "Central",
+    "benefit": "Property mapping and rural property documentation support.",
+    "eligibility": {}
+  },
+  {
+    "id": "national_education_policy",
+    "name": "National Education Policy Initiatives",
+    "category": "Education",
+    "level": "Central",
+    "benefit": "Education system initiatives and reforms.",
+    "eligibility": {}
+  },
+  {
+    "id": "national_apprenticeship",
+    "name": "National Apprenticeship Promotion Scheme",
+    "category": "Skills & Employment",
+    "level": "Central",
+    "benefit": "Apprenticeship and skill development support.",
+    "eligibility": {
+      "occupations": ["student", "unemployed"]
+    }
+  },
+  {
+    "id": "skill_india",
+    "name": "Skill India Mission",
+    "category": "Skills & Employment",
+    "level": "Central",
+    "benefit": "Skill development and vocational training opportunities.",
+    "eligibility": {
+      "occupations": ["student", "unemployed", "worker"]
+    }
+  },
+  {
+    "id": "national_rural_livelihood",
+    "name": "Deendayal Antyodaya Yojana - National Rural Livelihoods Mission",
+    "category": "Rural Development",
+    "level": "Central",
+    "benefit": "Livelihood and self-employment support for eligible rural households.",
+    "eligibility": {}
+  },
+  {
+    "id": "national_urban_livelihood",
+    "name": "Deendayal Antyodaya Yojana - National Urban Livelihoods Mission",
+    "category": "Urban Livelihood",
+    "level": "Central",
+    "benefit": "Livelihood and skill support for eligible urban beneficiaries.",
+    "eligibility": {}
+  },
+  {
+    "id": "pmay_life",
+    "name": "PM Awas Yojana Beneficiary Support",
+    "category": "Housing",
+    "level": "Central",
+    "benefit": "Housing-related assistance for eligible beneficiaries.",
+    "eligibility": {
+      "documents": ["aadhaar"]
+    }
+  },
+  {
+    "id": "national_food_security",
+    "name": "National Food Security Act Support",
+    "category": "Food & Nutrition",
+    "level": "Central",
+    "benefit": "Food-grain support for eligible households under applicable provisions.",
+    "eligibility": {}
+  },
+  {
+    "id": "one_nation_one_ration",
+    "name": "One Nation One Ration Card",
+    "category": "Food & Social Welfare",
+    "level": "Central",
+    "benefit": "Portability of eligible ration benefits across locations.",
+    "eligibility": {
+      "documents": ["aadhaar"]
+    }
+  },
+  {
+    "id": "pm_garib_kalyan",
+    "name": "Pradhan Mantri Garib Kalyan initiatives",
+    "category": "Social Welfare",
+    "level": "Central",
+    "benefit": "Welfare support through applicable government programmes.",
+    "eligibility": {}
+  },
+  {
+    "id": "national_handloom",
+    "name": "National Handloom Development Programme",
+    "category": "Textiles & Livelihood",
+    "level": "Central",
+    "benefit": "Support for eligible handloom weavers and related activities.",
+    "eligibility": {
+      "occupations": ["weaver"]
+    }
+  },
+  {
+    "id": "national_handicrafts",
+    "name": "National Handicrafts Development Programme",
+    "category": "Handicrafts",
+    "level": "Central",
+    "benefit": "Support for eligible handicraft artisans.",
+    "eligibility": {
+      "occupations": ["artisan", "craftsperson"]
+    }
+  },
+  {
+    "id": "pm_daksh",
+    "name": "PM-DAKSH",
+    "category": "Skills & Social Welfare",
+    "level": "Central",
+    "benefit": "Skill development support for eligible disadvantaged groups.",
+    "eligibility": {
+      "documents": ["aadhaar"]
+    }
+  },
+  {
+    "id": "minority_scholarship",
+    "name": "Scholarship Schemes for Minority Students",
+    "category": "Education",
+    "level": "Central",
+    "benefit": "Educational assistance under applicable minority scholarship programmes.",
+    "eligibility": {
+      "occupations": ["student"],
+      "documents": ["aadhaar", "marksheet", "studentId"]
+    }
+  },
+  {
+    "id": "obc_scholarship",
+    "name": "Scholarship Support for OBC Students",
+    "category": "Education",
+    "level": "Central",
+    "benefit": "Educational support under applicable OBC scholarship programmes.",
+    "eligibility": {
+      "categories": ["OBC"],
+      "occupations": ["student"],
+      "documents": ["aadhaar", "marksheet", "studentId"]
+    }
+  }
+]
